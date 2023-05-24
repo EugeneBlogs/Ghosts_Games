@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Определитель призрака Phasmophobia</title>
+</head>
+
+<body class="text-center">
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Добро пожаловать на сайт <span class="text-secondary">"Определитель призрака
+                            Phasmophobia"</span>.</h1>
+                    <h3>Наш алгоритм сможет на основе собранных улик в игре определить тип призрака.</h3>
+                    <p>P.S. Мы понимаем, что данная функция разработана в самой игре. Данный проект создан для отработки
+                        навыков программиста и дизайнера.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section style="display: none;" id="screamer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <img src="img/Скример.png" alt="Скример">
+                    <audio src="img/Скример.mp3" autoplay="autoplay"></audio>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-secondary">Выберите улики:</h3>
+                    <table class="table text-light">
+                        <thead>
+                            <tr>
+                                <th scope="col">№</th>
+                                <th scope="col">Улика</th>
+                                <th scope="col">Было</th>
+                                <th scope="col">Не было</th>
+                                <th scope="col">Не обнаружено</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>1</th>
+                                <th>Записи в блокноте</th>
+                                <td><input class="form-check-input" type="radio" name="Bloknot" id="b_yes"
+                                        onchange="Check()"></td>
+                                <td><input class="form-check-input" type="radio" name="Bloknot" id="b_no"
+                                        onchange="Check()"></td>
+                                <td><input class="form-check-input" type="radio" name="Bloknot" id="b"
+                                        onchange="Check()" checked></td>
+                            </tr>
+                            <tr>
+                                <th>2</th>
+                                <th>Лазерный проектор</th>
+                                <td><input class="form-check-input" type="radio" name="Proektor" id="p_yes"
+                                        onchange="Check()"></td>
+                                <td><input class="form-check-input" type="radio" name="Proektor" id="p_no"
+                                        onchange="Check()"></td>
+                                <td><input class="form-check-input" type="radio" name="Proektor" id="p"
+                                        onchange="Check()" checked></td>
+                            </tr>
+                            <tr>
+                                <th>3</th>
+                                <th>Минусовая температура</th>
+                                <td><input class="form-check-input" type="radio" name="Temperatura" id="t_yes"
+                                        onchange="Check()"></td>
+                                <td><input class="form-check-input" type="radio" name="Temperatura" id="t_no"
+                                        onchange="Check()"></td>
+                                <td><input class="form-check-input" type="radio" name="Temperatura" id="t"
+                                        onchange="Check()" checked></td>
+                            </tr>
+                            <tr>
+                                <th>4</th>
+                                <th>Отпечатки рук</th>
+                                <td><input class="form-check-input" type="radio" name="Otpechatki" id="ot_yes"
+                                        onchange="Check()"></td>
+                                <td><input class="form-check-input" type="radio" name="Otpechatki" id="ot_no"
+                                        onchange="Check()"></td>
+                                <td><input class="form-check-input" type="radio" name="Otpechatki" id="ot"
+                                        onchange="Check()" checked></td>
+                            </tr>
+                            <tr>
+                                <th>5</th>
+                                <th>Призрачный огонёк</th>
+                                <td><input class="form-check-input" type="radio" name="Ogonek" id="og_yes"
+                                        onchange="Check()"></td>
+                                <td><input class="form-check-input" type="radio" name="Ogonek" id="og_no"
+                                        onchange="Check()"></td>
+                                <td><input class="form-check-input" type="radio" name="Ogonek" id="og"
+                                        onchange="Check()" checked></td>
+                            </tr>
+                            <tr>
+                                <th>6</th>
+                                <th>Радиоприёмник</th>
+                                <td><input class="form-check-input" type="radio" name="Radiopriemnik" id="r_yes"
+                                        onchange="Check()"></td>
+                                <td><input class="form-check-input" type="radio" name="Radiopriemnik" id="r_no"
+                                        onchange="Check()"></td>
+                                <td><input class="form-check-input" type="radio" name="Radiopriemnik" id="r"
+                                        onchange="Check()" checked></td>
+                            </tr>
+                            <tr>
+                                <th>7</th>
+                                <th>ЭМП (уровень 5)</th>
+                                <td><input class="form-check-input" type="radio" name="EMP" id="e_yes"
+                                        onchange="Check()"></td>
+                                <td><input class="form-check-input" type="radio" name="EMP" id="e_no"
+                                        onchange="Check()"></td>
+                                <td><input class="form-check-input" type="radio" name="EMP" id="e" onchange="Check()"
+                                        checked></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-secondary">Подозреваемые призраки:</h3>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="banshy">
+                    <h5>Банши</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="blyznechy">
+                    <h5>Близнецы</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="gore">
+                    <h5>Горё</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="demon">
+                    <h5>Демон</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="deogen">
+                    <h5>Деоген</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="dzinn">
+                    <h5>Джинн</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="duh">
+                    <h5>Дух</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="ekay">
+                    <h5>Ёкай</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="mara">
+                    <h5>Мара</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="mimik">
+                    <h5>Мимик</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="miraz">
+                    <h5>Мираж</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="moroy">
+                    <h5>Морой</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="mulling">
+                    <h5>Мюлинг</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="obake">
+                    <h5>Обакэ</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="oni">
+                    <h5>Они</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="onre">
+                    <h5>Онрё</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="poltergeist">
+                    <h5>Полтергейст</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="raydzu">
+                    <h5>Райдзю</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="revenant">
+                    <h5>Ревенант</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="taye">
+                    <h5>Тайэ</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="ten">
+                    <h5>Тень</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="fantom">
+                    <h5>Фантом</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="hantu">
+                    <h5>Ханту</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="yurey">
+                    <h5>Юрэй</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-secondary">Информация о призраках:</h3>
+                    <table class="table table-bordered text-light">
+                        <thead>
+                            <tr>
+                                <th scope="col">№</th>
+                                <th scope="col">Имя призрака</th>
+                                <th scope="col">Записи в блокноте</th>
+                                <th scope="col">Лазерный проектор</th>
+                                <th scope="col">Минусовая температура</th>
+                                <th scope="col">Отпечатки рук</th>
+                                <th scope="col">Призрачный огонёк</th>
+                                <th scope="col">Радиоприёмник</th>
+                                <th scope="col">ЭМП (уровень 5)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>1</th>
+                                <th>Банши</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <th>2</th>
+                                <th>Близнецы</th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓</th>
+                            </tr>
+                            <tr>
+                                <th>3</th>
+                                <th>Горё</th>
+                                <th></th>
+                                <th>✓ ***</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                            </tr>
+                            <tr>
+                                <th>4</th>
+                                <th>Демон</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <th>5</th>
+                                <th>Деоген</th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <th>6</th>
+                                <th>Джинн</th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                            </tr>
+                            <tr>
+                                <th>7</th>
+                                <th>Дух</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓</th>
+                            </tr>
+                            <tr>
+                                <th>8</th>
+                                <th>Ёкай</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <th>9</th>
+                                <th>Мара</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <th>10</th>
+                                <th>Мимик</th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓ *</th>
+                                <th>✓ **</th>
+                                <th>✓</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <th>11</th>
+                                <th>Мираж</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓</th>
+                            </tr>
+                            <tr>
+                                <th>12</th>
+                                <th>Морой</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <th>13</th>
+                                <th>Мюлинг</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                            </tr>
+                            <tr>
+                                <th>14</th>
+                                <th>Обакэ</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>✓ *</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                            </tr>
+                            <tr>
+                                <th>15</th>
+                                <th>Они</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                            </tr>
+                            <tr>
+                                <th>16</th>
+                                <th>Онрё</th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <th>17</th>
+                                <th>Полтергейст</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <th>18</th>
+                                <th>Райдзю</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                            </tr>
+                            <tr>
+                                <th>19</th>
+                                <th>Ревенант</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <th>20</th>
+                                <th>Тайэ</th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <th>21</th>
+                                <th>Тень</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                            </tr>
+                            <tr>
+                                <th>22</th>
+                                <th>Фантом</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <th>23</th>
+                                <th>Ханту</th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <th>24</th>
+                                <th>Юрэй</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Примечание:<br>
+                        * Чаще всего Обакэ оставляет отпечаток с 6 пальцами, но Мимик умеет это
+                        копировать.<br>
+                        ** Мимик умеет копировать призрачный огонёк, поэтому он может иметь 4
+                        улики. (Если вы отметите в уликах призрачный огонёк, то наш алгоритм НЕ будет предполагать, что
+                        это Мимик, так как это улика-исключение)<br>
+                        *** Горё оставляет улику "Лазерный проектор", но увидеть её возможно только через
+                        видеокамеру, находясь в фургоне, причём рядом с проектором не должно быть других игроков.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h6>Игра создана компанией "Kinetic Games".</h6>
+                    <h6>Сайт разработан компанией "MylnikCode".</h6>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script>
+        onscroll = function () {
+            if (window.scrollY + 1 >= document.documentElement.scrollHeight - document.documentElement.clientHeight) {
+                document.getElementById("screamer").style.display = "block"
+                window.scrollTo(0, 0);
+                var audio = new Audio()
+                audio.src = 'img/Скример.mp3'
+                audio.autoplay = true
+                setTimeout(() => document.getElementById("screamer").style.display = "none", 1500);
+            }
+        };
+
+    </script>
+</body>
+
+</html>
