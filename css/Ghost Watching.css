@@ -1,0 +1,22 @@
+@font-face {
+    font-family: "Ustroke";
+    src: url("../fonts/Ustroke.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+body {
+    background-color: #1e1e1e;
+    color: white;
+    font-family: "Ustroke";
+}
+
+footer {
+    padding-bottom: 300px;
+}
+
+header,
+section,
+footer {
+    margin-top: 50px;
+}

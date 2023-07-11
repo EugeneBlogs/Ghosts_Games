@@ -1,0 +1,22 @@
+@font-face {
+    font-family: "Pencil";
+    src: url("../fonts/Pencil.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: "Pencil";
+}
+
+footer {
+    padding-bottom: 300px;
+}
+
+header,
+section,
+footer {
+    margin-top: 50px;
+}

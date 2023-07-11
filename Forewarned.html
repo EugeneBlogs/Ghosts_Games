@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/Forewarned.css">
+    <title>Определитель Меджая Forewarned</title>
+</head>
+
+<body class="text-center">
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Добро пожаловать на сайт <span class="text-warning">"Определитель Меджая
+                            Forewarned"</span>.</h1>
+                    <h2>Мы также можем помочь вам в играх: <a href="index.html">Phasmophobia</a>, <a
+                            href="Demonologist.html">Demonologist</a>, <a href="Ghost Watching.html">Ghost Watching</a>.
+                    </h2>
+                    <h3>Наш алгоритм сможет на основе собранных улик в игре определить тип Меджая.</h3>
+                    <p>P.S. Мы понимаем, что данная функция разработана в самой игре. Данный проект создан для отработки
+                        навыков программиста и дизайнера.</p>
+                    <p>P.P.S. Возможны ошибки перевода.</p>
+                    <h4 style="color: red;">Осторожно! На сайте присутсвует скример!</h4>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section style="display: none;" id="screamer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <img src="img/Скример Forewarned.png" alt="Скример">
+                    <audio src="img/Скример.mp3" autoplay="autoplay"></audio>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-warning">Выберите улики:</h3>
+                    <table class="table text-light">
+                        <thead>
+                            <tr>
+                                <th scope="col">№</th>
+                                <th scope="col">Улика</th>
+                                <th scope="col">Было</th>
+                                <th scope="col">Не было</th>
+                                <th scope="col">Неизвестно</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>1</th>
+                                <th>Голосовой отклик</th>
+                                <td><input class="form-check-input" type="radio" name="Golos" id="go_yes"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="Golos" id="go_no"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="Golos" id="go" onchange="Check()"
+                                        checked></td>
+                            </tr>
+                            <tr>
+                                <th>2</th>
+                                <th>Магнитные искажения</th>
+                                <td><input class="form-check-input" type="radio" name="Magnit" id="mi_yes"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="Magnit" id="mi_no"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="Magnit" id="mi"
+                                        onchange="Check()" checked></td>
+                            </tr>
+                            <tr>
+                                <th>3</th>
+                                <th>Металлическая сигнатура</th>
+                                <td><input class="form-check-input" type="radio" name="Metall" id="ms_yes"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="Metall" id="ms_no"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="Metall" id="ms"
+                                        onchange="Check()" checked></td>
+                            </tr>
+                            <tr>
+                                <th>4</th>
+                                <th>Подземные толчки</th>
+                                <td><input class="form-check-input" type="radio" name="Tolchki" id="pt_yes"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="Tolchki" id="pt_no"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="Tolchki" id="pt"
+                                        onchange="Check()" checked></td>
+                            </tr>
+                            <tr>
+                                <th>5</th>
+                                <th>Потревоженные гробницы</th>
+                                <td><input class="form-check-input" type="radio" name="Grob" id="pg_yes"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="Grob" id="pg_no"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="Grob" id="pg" onchange="Check()"
+                                        checked></td>
+                            </tr>
+                            <tr>
+                                <th>6</th>
+                                <th>Радиоактивность</th>
+                                <td><input class="form-check-input" type="radio" name="Radioactivnost" id="padio_yes"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="Radioactivnost" id="padio_no"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="Radioactivnost" id="padio"
+                                        onchange="Check()" checked></td>
+                            </tr>
+                            <tr>
+                                <th>7</th>
+                                <th>Радиолокационное обнаружение</th>
+                                <td><input class="form-check-input" type="radio" name="RadioLocation" id="ro_yes"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="RadioLocation" id="ro_no"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="RadioLocation" id="ro"
+                                        onchange="Check()" checked></td>
+                            </tr>
+                            <tr>
+                                <th>8</th>
+                                <th>Реанимация трупов</th>
+                                <td><input class="form-check-input" type="radio" name="Trup" id="rt_yes"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="Trup" id="rt_no"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="Trup" id="rt" onchange="Check()"
+                                        checked></td>
+                            </tr>
+                            <tr>
+                                <th>9</th>
+                                <th>Тушение пламени</th>
+                                <td><input class="form-check-input" type="radio" name="Plamya" id="tp_yes"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="Plamya" id="tp_no"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="Plamya" id="tp"
+                                        onchange="Check()" checked></td>
+                            </tr>
+                            <tr>
+                                <th>10</th>
+                                <th>Уничтожение объектов</th>
+                                <td><input class="form-check-input" type="radio" name="Objects" id="uo_yes"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="Objects" id="uo_no"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="Objects" id="uo"
+                                        onchange="Check()" checked></td>
+                            </tr>
+                            <tr>
+                                <th>11</th>
+                                <th>Шаги</th>
+                                <td><input class="form-check-input" type="radio" name="Shagi" id="steps_yes"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="Shagi" id="steps_no"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="Shagi" id="steps"
+                                        onchange="Check()" checked></td>
+                            </tr>
+                            <tr>
+                                <th>12</th>
+                                <th>Электронные помехи</th>
+                                <td><input class="form-check-input" type="radio" name="Pomehi" id="ep_yes"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="Pomehi" id="ep_no"
+                                        onchange="Check()">
+                                </td>
+                                <td><input class="form-check-input" type="radio" name="Pomehi" id="ep"
+                                        onchange="Check()" checked></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-warning">Подозреваемые Меджаи:</h3>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="ataimon">
+                    <h5>Атаимон Мерзкий</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="dekan">
+                    <h5>Декан Потерянный</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="nekref">
+                    <h5>Некреф Тень</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="ratos">
+                    <h5>Ратос Проклятый</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="talgor">
+                    <h5>Талгор Опасный</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="ufris">
+                    <h5>Уфрис Забытый</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-warning">Информация о Меджаях:</h3>
+                    <table class="table table-bordered text-light">
+                        <thead>
+                            <tr>
+                                <th scope="col">№</th>
+                                <th scope="col">Имя Меджая</th>
+                                <th scope="col">Голосовой отклик</th>
+                                <th scope="col">Магнитные искажения</th>
+                                <th scope="col">Металлическая сигнатура</th>
+                                <th scope="col">Подземные толчки</th>
+                                <th scope="col">Потревоженные гробницы</th>
+                                <th scope="col">Радиоактивность</th>
+                                <th scope="col">Радиолокационное обнаружение</th>
+                                <th scope="col">Реанимация трупов</th>
+                                <th scope="col">Тушение пламени</th>
+                                <th scope="col">Уничтожение объектов</th>
+                                <th scope="col">Шаги</th>
+                                <th scope="col">Электронные помехи</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>1</th>
+                                <th>Атаимон Мерзкий</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th>✓</th>
+                            </tr>
+                            <tr>
+                                <th>2</th>
+                                <th>Декан Потерянный</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th></th>
+                            </tr>
+                            <tr>
+                                <th>3</th>
+                                <th>Некреф Тень</th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                            </tr>
+                            <tr>
+                                <th>4</th>
+                                <th>Ратос Проклятый</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓</th>
+                            </tr>
+                            <tr>
+                                <th>5</th>
+                                <th>Талгор Опасный</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                            </tr>
+                            <tr>
+                                <th>6</th>
+                                <th>Уфрис Забытый</th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th>✓</th>
+                                <th></th>
+                                <th>✓</th>
+                                <th></th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h6>Игра создана компанией "Dreambyte Games".</h6>
+                    <h6>Сайт разработан компанией "MylnikCode".</h6>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/Forewarned.js"></script>
+    <script>
+        onscroll = function () {
+            if (window.scrollY + 1 >= document.documentElement.scrollHeight - document.documentElement.clientHeight) {
+                document.getElementById("screamer").style.display = "block"
+                window.scrollTo(0, 0);
+                var audio = new Audio()
+                audio.src = 'img/Скример.mp3'
+                audio.autoplay = true
+                setTimeout(() => document.getElementById("screamer").style.display = "none", 1500);
+            }
+        };
+
+    </script>
+</body>
+
+</html>

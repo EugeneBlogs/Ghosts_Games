@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/Ghost Watching.css">
+    <title>Определитель призрака Ghost Watching</title>
+</head>
+
+<body class="text-center">
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>Добро пожаловать на сайт <span class="text-secondary">"Определитель призрака
+                            Ghost Watching"</span>.</h1>
+                    <h2>Мы также можем помочь вам в играх: <a href="index.html">Phasmophobia</a>, <a
+                            href="Demonologist.html">Demonologist</a>, <a href="Forewarned.html">Forewarned</a>.</h2>
+                    <h3>Наш алгоритм сможет на основе собранных улик в игре определить тип призрака.</h3>
+                    <p>P.S. Мы понимаем, что данная функция разработана в самой игре. Данный проект создан для отработки
+                        навыков программиста и дизайнера.</p>
+                    <p>P.P.S. Возможны ошибки перевода.</p>
+                    <h4 style="color: red;">Осторожно! На сайте присутсвует скример!</h4>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section style="display: none;" id="screamer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <img src="img/Скример Ghost Watching.png" alt="Скример">
+                    <audio src="img/Скример.mp3" autoplay="autoplay"></audio>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-secondary">Выберите улики:</h3>
+                    <table class="table text-light">
+                        <thead>
+                            <tr>
+                                <th scope="col">№</th>
+                                <th scope="col">Улика</th>
+                                <th scope="col">Показания</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>1</th>
+                                <th>Датчик ЭДС</th>
+                                <td>
+                                    <select class="form-select" id="EDS" onchange="Check()">
+                                        <option selected>Неизвестно</option>
+                                        <option value="1-2">1-2</option>
+                                        <option value="3">3</option>
+                                        <option value="3 RED">3 КРАСНЫЙ</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>2</th>
+                                <th>Следы</th>
+                                <td>
+                                    <select class="form-select" id="Sled" onchange="Check()">
+                                        <option selected>Неизвестно</option>
+                                        <option value="no">Не оставляет следов</option>
+                                        <option value="baby">Малыш</option>
+                                        <option value="pentagramma">Пентаграмма</option>
+                                        <option value="blood">Пятна крови</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>3</th>
+                                <th>Термометр</th>
+                                <td>
+                                    <select class="form-select" id="Termometr" onchange="Check()">
+                                        <option selected>Неизвестно</option>
+                                        <option value="-20-10">-20°C - -10°C</option>
+                                        <option value="-5+5">-5°C - +5°C</option>
+                                        <option value="+10+30">+10°C - +30°C</option>
+                                        <option value="+45+55">+45°C - +55°C</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>4</th>
+                                <th>Доска для спиритических сеансов</th>
+                                <td>
+                                    <select class="form-select" id="Doska" onchange="Check()">
+                                        <option selected>Неизвестно</option>
+                                        <option value="no">Не взаимодействует</option>
+                                        <option value="storona">Перемещает из стороны в сторону</option>
+                                        <option value="random">Случайным образом</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>5</th>
+                                <th>Счетчик частиц</th>
+                                <td>
+                                    <select class="form-select" id="Chastycy" onchange="Check()">
+                                        <option selected>Неизвестно</option>
+                                        <option value="100-500">100 - 500</option>
+                                        <option value="500-1000">500 - 1000</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>6</th>
+                                <th>Кукла Вуду</th>
+                                <td>
+                                    <select class="form-select" id="Vudu" onchange="Check()">
+                                        <option selected>Неизвестно</option>
+                                        <option value="no">Не взаимодействует</option>
+                                        <option value="brosok">Бросает куклу</option>
+                                        <option value="podyem">Поднмает куклу</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>7</th>
+                                <th>Радио</th>
+                                <td>
+                                    <select class="form-select" id="Radio" onchange="Check()">
+                                        <option selected>Неизвестно</option>
+                                        <option value="plach">Плач</option>
+                                        <option value="ryk">Рычание</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-secondary">Подозреваемый тип призрака:</h3>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="vampyr">
+                    <h5>Вампир</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="viselnik">
+                    <h5>Висельник</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="demon">
+                    <h5>Демон</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="poltergeist">
+                    <h5>Полтергейст</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="rebenok">
+                    <h5>Ребёнок</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="temnota">
+                    <h5>Темнота</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="utopnik">
+                    <h5>Утопник</h5>
+                </div>
+                <div class="col-xl-4 col-md-6 col-sm-12" id="czyanshy">
+                    <h5>Цзянши</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-secondary">Подозреваемая эпоха призрака:</h3>
+                </div>
+                <div class="col-xl-6 col-md-6 col-sm-12" id="age1">
+                    <h5>Молодая</h5>
+                </div>
+                <div class="col-xl-6 col-md-6 col-sm-12" id="age2">
+                    <h5>Средняя</h5>
+                </div>
+                <div class="col-xl-6 col-md-6 col-sm-12" id="age3">
+                    <h5>Пожилая</h5>
+                </div>
+                <div class="col-xl-6 col-md-6 col-sm-12" id="age4">
+                    <h5>Древняя</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-secondary">Подозреваемое настроение призрака:</h3>
+                </div>
+                <div class="col-xl-6 col-md-6 col-sm-12" id="angry">
+                    <h5>Агрессивное</h5>
+                </div>
+                <div class="col-xl-6 col-md-6 col-sm-12" id="obsessive">
+                    <h5>Навязчивое</h5>
+                </div>
+                <div class="col-xl-6 col-md-6 col-sm-12" id="concerned">
+                    <h5>Обеспокоенное</h5>
+                </div>
+                <div class="col-xl-6 col-md-6 col-sm-12" id="calm">
+                    <h5>Спокойное</h5>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-secondary">Информация о призраках:</h3>
+                    <table class="table table-bordered text-light">
+                        <thead>
+                            <tr>
+                                <th scope="col">№</th>
+                                <th scope="col">Имя призрака</th>
+                                <th scope="col">Датчик ЭДС</th>
+                                <th scope="col">Следы</th>
+                                <th scope="col">Термометр</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>1</th>
+                                <th>Вампир</th>
+                                <th>1-2</th>
+                                <th>Пятна крови</th>
+                                <th>+45°C - +55°C</th>
+                            </tr>
+                            <tr>
+                                <th>2</th>
+                                <th>Висельник</th>
+                                <th>3</th>
+                                <th>Не оставляет следов</th>
+                                <th>-20°C - -10°C</th>
+                            </tr>
+                            <tr>
+                                <th>3</th>
+                                <th>Демон</th>
+                                <th>3 КРАСНЫЙ</th>
+                                <th>-</th>
+                                <th>+45°C - +55°C</th>
+                            </tr>
+                            <tr>
+                                <th>4</th>
+                                <th>Полтергейст</th>
+                                <th>1-2</th>
+                                <th>Не оставляет следов</th>
+                                <th>-5°C - +5°C</th>
+                            </tr>
+                            <tr>
+                                <th>5</th>
+                                <th>Ребёнок</th>
+                                <th>3</th>
+                                <th>Малыш</th>
+                                <th>+10°C - +30°C</th>
+                            </tr>
+                            <tr>
+                                <th>6</th>
+                                <th>Темнота</th>
+                                <th>1-2</th>
+                                <th>Пятна крови</th>
+                                <th>-5°C - +5°C</th>
+                            </tr>
+                            <tr>
+                                <th>7</th>
+                                <th>Утопник</th>
+                                <th>5</th>
+                                <th>Не оставляет следов</th>
+                                <th>-20°C - -10°C</th>
+                            </tr>
+                            <tr>
+                                <th>8</th>
+                                <th>Цзянши</th>
+                                <th>5</th>
+                                <th>-</th>
+                                <th>-5°C - +5°C</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-secondary">Информация об эпохах:</h3>
+                    <table class="table table-bordered text-light">
+                        <thead>
+                            <tr>
+                                <th scope="col">№</th>
+                                <th scope="col">Время</th>
+                                <th scope="col">Доска для спиритических сеансов</th>
+                                <th scope="col">Счетчик частиц</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>1</th>
+                                <th>Молодой</th>
+                                <th>Не взаимодействует</th>
+                                <th>100 - 500</th>
+                            </tr>
+                            <tr>
+                                <th>2</th>
+                                <th>Средний</th>
+                                <th>Перемещает из стороны в сторону</th>
+                                <th>100 - 500</th>
+                            </tr>
+                            <tr>
+                                <th>3</th>
+                                <th>Пожилой</th>
+                                <th>Перемещает из стороны в сторону</th>
+                                <th>500 - 1000</th>
+                            </tr>
+                            <tr>
+                                <th>4</th>
+                                <th>Древний</th>
+                                <th>Случайным образом</th>
+                                <th>500 - 1000</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-secondary">Информация о настроении:</h3>
+                    <table class="table table-bordered text-light">
+                        <thead>
+                            <tr>
+                                <th scope="col">№</th>
+                                <th scope="col">Тип</th>
+                                <th scope="col">Кукла Вуду</th>
+                                <th scope="col">Радио</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>1</th>
+                                <th>Агрессивное</th>
+                                <th>Не взаимодействует</th>
+                                <th>Рычание</th>
+                            </tr>
+                            <tr>
+                                <th>2</th>
+                                <th>Навязчивое</th>
+                                <th>Бросает куклу</th>
+                                <th>Рычание</th>
+                            </tr>
+                            <tr>
+                                <th>3</th>
+                                <th>Обеспокоенное</th>
+                                <th>Не взаимодействует</th>
+                                <th>Плач</th>
+                            </tr>
+                            <tr>
+                                <th>4</th>
+                                <th>Спокойное</th>
+                                <th>Поднимает вуду</th>
+                                <th>Плач</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h6>Игра создана компанией "Renderise".</h6>
+                    <h6>Сайт разработан компанией "MylnikCode".</h6>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/Ghost Watching.js"></script>
+    <script>
+        onscroll = function () {
+            if (window.scrollY + 1 >= document.documentElement.scrollHeight - document.documentElement.clientHeight) {
+                document.getElementById("screamer").style.display = "block"
+                window.scrollTo(0, 0);
+                var audio = new Audio()
+                audio.src = 'img/Скример.mp3'
+                audio.autoplay = true
+                setTimeout(() => document.getElementById("screamer").style.display = "none", 1500);
+            }
+        };
+
+    </script>
+</body>
+
+</html>
