@@ -49,13 +49,15 @@
                             <tr>
                                 <th scope="col">№</th>
                                 <th scope="col">Улика</th>
+                                <th scope="col">Влияет на ...</th>
                                 <th scope="col">Показания</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <th>1</th>
-                                <th>Датчик ЭДС</th>
+                                <th>Датчик ЭМП</th>
+                                <th>Тип призрака</th>
                                 <td>
                                     <select class="form-select" id="EDS" onchange="Check()">
                                         <option selected>Неизвестно</option>
@@ -69,6 +71,7 @@
                             <tr>
                                 <th>2</th>
                                 <th>Следы</th>
+                                <th>Тип призрака</th>
                                 <td>
                                     <select class="form-select" id="Sled" onchange="Check()">
                                         <option selected>Неизвестно</option>
@@ -82,6 +85,7 @@
                             <tr>
                                 <th>3</th>
                                 <th>Термометр</th>
+                                <th>Тип призрака</th>
                                 <td>
                                     <select class="form-select" id="Termometr" onchange="Check()">
                                         <option selected>Неизвестно</option>
@@ -94,19 +98,21 @@
                             </tr>
                             <tr>
                                 <th>4</th>
-                                <th>Доска для спиритических сеансов</th>
+                                <th>Спиритическая доска</th>
+                                <th>Возраст</th>
                                 <td>
                                     <select class="form-select" id="Doska" onchange="Check()">
                                         <option selected>Неизвестно</option>
                                         <option value="no">Не взаимодействует</option>
-                                        <option value="storona">Перемещает из стороны в сторону</option>
-                                        <option value="random">Случайным образом</option>
+                                        <option value="storona">Перемещает из угла в угол</option>
+                                        <option value="random">Перемещает хаотично</option>
                                     </select>
                                 </td>
                             </tr>
                             <tr>
                                 <th>5</th>
                                 <th>Счетчик частиц</th>
+                                <th>Возраст</th>
                                 <td>
                                     <select class="form-select" id="Chastycy" onchange="Check()">
                                         <option selected>Неизвестно</option>
@@ -118,6 +124,7 @@
                             <tr>
                                 <th>6</th>
                                 <th>Кукла Вуду</th>
+                                <th>Настроение</th>
                                 <td>
                                     <select class="form-select" id="Vudu" onchange="Check()">
                                         <option selected>Неизвестно</option>
@@ -130,6 +137,7 @@
                             <tr>
                                 <th>7</th>
                                 <th>Радио</th>
+                                <th>Настроение</th>
                                 <td>
                                     <select class="form-select" id="Radio" onchange="Check()">
                                         <option selected>Неизвестно</option>
@@ -166,10 +174,10 @@
                     <h5>Ребёнок</h5>
                 </div>
                 <div class="col-xl-4 col-md-6 col-sm-12" id="temnota">
-                    <h5>Темнота</h5>
+                    <h5>Тьма</h5>
                 </div>
                 <div class="col-xl-4 col-md-6 col-sm-12" id="utopnik">
-                    <h5>Утопник</h5>
+                    <h5>Утопленница</h5>
                 </div>
                 <div class="col-xl-4 col-md-6 col-sm-12" id="czyanshy">
                     <h5>Цзянши</h5>
@@ -181,19 +189,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h3 class="text-secondary">Подозреваемая эпоха призрака:</h3>
+                    <h3 class="text-secondary">Подозреваемый возраст призрака:</h3>
                 </div>
                 <div class="col-xl-6 col-md-6 col-sm-12" id="age1">
-                    <h5>Молодая</h5>
+                    <h5>Молодой</h5>
                 </div>
                 <div class="col-xl-6 col-md-6 col-sm-12" id="age2">
-                    <h5>Средняя</h5>
+                    <h5>Средний</h5>
                 </div>
                 <div class="col-xl-6 col-md-6 col-sm-12" id="age3">
-                    <h5>Пожилая</h5>
+                    <h5>Старший</h5>
                 </div>
                 <div class="col-xl-6 col-md-6 col-sm-12" id="age4">
-                    <h5>Древняя</h5>
+                    <h5>Древний</h5>
                 </div>
             </div>
         </div>
@@ -208,10 +216,10 @@
                     <h5>Агрессивное</h5>
                 </div>
                 <div class="col-xl-6 col-md-6 col-sm-12" id="obsessive">
-                    <h5>Навязчивое</h5>
+                    <h5>Охотящиеся</h5>
                 </div>
                 <div class="col-xl-6 col-md-6 col-sm-12" id="concerned">
-                    <h5>Обеспокоенное</h5>
+                    <h5>Встревоженное</h5>
                 </div>
                 <div class="col-xl-6 col-md-6 col-sm-12" id="calm">
                     <h5>Спокойное</h5>
@@ -229,7 +237,7 @@
                             <tr>
                                 <th scope="col">№</th>
                                 <th scope="col">Имя призрака</th>
-                                <th scope="col">Датчик ЭДС</th>
+                                <th scope="col">Датчик ЭМП</th>
                                 <th scope="col">Следы</th>
                                 <th scope="col">Термометр</th>
                             </tr>
@@ -272,14 +280,14 @@
                             </tr>
                             <tr>
                                 <th>6</th>
-                                <th>Темнота</th>
+                                <th>Тьма</th>
                                 <th>1-2</th>
                                 <th>Пятна крови</th>
                                 <th>-5°C - +5°C</th>
                             </tr>
                             <tr>
                                 <th>7</th>
-                                <th>Утопник</th>
+                                <th>Утопленница</th>
                                 <th>5</th>
                                 <th>Не оставляет следов</th>
                                 <th>-20°C - -10°C</th>
@@ -301,13 +309,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h3 class="text-secondary">Информация об эпохах:</h3>
+                    <h3 class="text-secondary">Информация о возрасте:</h3>
                     <table class="table table-bordered text-light">
                         <thead>
                             <tr>
                                 <th scope="col">№</th>
-                                <th scope="col">Время</th>
-                                <th scope="col">Доска для спиритических сеансов</th>
+                                <th scope="col">Возраст</th>
+                                <th scope="col">Спиритическая доска</th>
                                 <th scope="col">Счетчик частиц</th>
                             </tr>
                         </thead>
@@ -321,19 +329,19 @@
                             <tr>
                                 <th>2</th>
                                 <th>Средний</th>
-                                <th>Перемещает из стороны в сторону</th>
+                                <th>Перемещает из угла в угол</th>
                                 <th>100 - 500</th>
                             </tr>
                             <tr>
                                 <th>3</th>
-                                <th>Пожилой</th>
-                                <th>Перемещает из стороны в сторону</th>
+                                <th>Старший</th>
+                                <th>Перемещает из угла в угол</th>
                                 <th>500 - 1000</th>
                             </tr>
                             <tr>
                                 <th>4</th>
                                 <th>Древний</th>
-                                <th>Случайным образом</th>
+                                <th>Перемещает хаотично</th>
                                 <th>500 - 1000</th>
                             </tr>
                         </tbody>
@@ -365,13 +373,13 @@
                             </tr>
                             <tr>
                                 <th>2</th>
-                                <th>Навязчивое</th>
+                                <th>Охотящиеся</th>
                                 <th>Бросает куклу</th>
                                 <th>Рычание</th>
                             </tr>
                             <tr>
                                 <th>3</th>
-                                <th>Обеспокоенное</th>
+                                <th>Встревоженное</th>
                                 <th>Не взаимодействует</th>
                                 <th>Плач</th>
                             </tr>
